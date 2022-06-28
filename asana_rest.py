@@ -1,6 +1,7 @@
 
 from flask import request , jsonify
 # from flask_cors import CORS
+import sys
 
 from modules.rest import health as rest_health
 from modules.rest import projects as rest_projects
@@ -61,9 +62,10 @@ def task_notes():
     return response
 
 
+
 if __name__ == "__main__":
     from waitress import serve
     config.LOGGER.info("STARTUP waitress server on port %s ..." % (config.ASANA_PORT))
-    serve(config.APP, host="0.0.0.0", port=config.ASANA_PORT)
+    serve(config.APP, host="0.0.0.0", port=config.ASANA_PORT, threads=10)
 
 
