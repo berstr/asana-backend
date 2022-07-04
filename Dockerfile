@@ -1,4 +1,4 @@
-FROM python:3.6-alpine AS base
+FROM python:3.10.5-alpine AS base
 
 RUN pip install --no-cache-dir newrelic
 
