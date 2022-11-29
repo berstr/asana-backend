@@ -1,7 +1,7 @@
 
 from flask import request , jsonify
-# from flask_cors import CORS
 import sys
+import os
 
 from modules.rest import health as rest_health
 from modules.rest import projects as rest_projects
@@ -12,7 +12,13 @@ import config
 
 config.init()
 
-# CORS(config.APP)
+ASANA_BACKEND_CORS = os.environ.get("ASANA_BACKEND_CORS")
+if (ASANA_BACKEND_CORS == 'true'):
+    from flask_cors import CORS
+    CORS(config.APP)
+
+
+
 
 config.LOGGER.info("STARTUP ASANA SERVICE")
 

@@ -26,6 +26,7 @@ ASANA = None
 # The following variables are set through env variables
 # ==========================
 
+
 ASANA_USERNAME = os.environ.get("ASANA_USERNAME")
 if (ASANA_USERNAME == None):
     print('FATAL - env ASANA_USERNAME not defined - Exit service')
